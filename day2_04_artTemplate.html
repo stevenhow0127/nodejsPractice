@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="node_modules/art-template/lib/template-web.js"></script>
+    <script type="text/template" id="tpl">
+        <!-- {{}}為mustache語法  -->
+        hello I'm {{ name }}.
+        I'm {{ age }}.
+        I come from {{ place }}
+        I like {{ each hobbies }} {{ $value }} {{ /each }}
+    </script>
+    <!--
+    <script type="text/javascript">
+        var ret = template('tpl', {
+            'name' : 'Jack',
+            'age' : 39,
+            'place' : 'Taiwan',
+            'hobbies' : [
+                'coding',
+                'baseball',
+                'design'
+            ]
+        })
+        console.log(ret)
+    </script>
+    -->
+</body>
+</html>

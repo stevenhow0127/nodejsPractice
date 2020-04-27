@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr class="header" id="theader">
+                <th>名稱</th>
+                <th class="detailsColumn">大小</th>
+                <th class="detailsColumn">修改日期</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {{ each files }}
+            <tr>
+                <td data-value="apple/"><a href="">{{ $value }}</a></td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="">2019/04/15</td>
+            </tr>
+            {{ /each }}
+        </tbody>
+    </table>
+</body>
+</html>

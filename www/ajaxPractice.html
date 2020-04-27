@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <h1 id="content">Hello world!</h1>
+        <p onclick="getData()">get Data</p>
+    </body>
+    <script>
+        function getData() {
+            var content = new XMLHttpRequest()
+            content.open('POST', 'http://127.0.0.1/jsonExample.js')
+            content.onload = function() {
+                var data = document.getElementById('content')
+                data.innerHTML = this.responseText
+            }
+            content.send()
+        }
+    </script>
+</html>

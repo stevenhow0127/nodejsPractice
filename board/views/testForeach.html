@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+    <script type="text/javascript">
+        var json = [
+            {
+                name: 'sharon',
+                message: 'end world',
+                time: '2020/4/18'
+            }, {
+                name: 'Luka',
+                message: 'Yo world',
+                time: '2020/4/18'
+            }, {
+                name: 'Lea',
+                message: 'Hi world',
+                time: '2020/4/18'
+            }, {
+                name: 'Damien',
+                message: 'Hello world',
+                time: '2020/4/18'
+            }, {
+                name: 'Steven',
+                message: 'Taiwan No.1',
+                time: '2020/4/17'
+            }
+        ]
+        json.forEach(function (item, index) {
+            var content = document.getElementById('content')
+            content.innerHTML += `${item.name} says ${item.message} at ${item.time}.`
+            //content.innerHTML.push(item.name)
+            //content.innerHTML.push(item.message)
+        })
+    </script>
+</body>
+</html>

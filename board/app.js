@@ -17,26 +17,48 @@ app.engine('html', require('express-art-template'))
 //若希望修改render方法的預設路徑，用.set去修改
 //app.set('views', 'render函數的預設路徑')
 
-var comments = []
-fs.readFile('./db.json', function (err,data) {
-    comments = JSON.parse(data)
-})
+var comments = [
+    {
+        "name": "sharon",
+        "message": "end world",
+        "time": "2020/4/18"
+    },
+    {
+        "name": "Luka",
+        "message": "Yo world",
+        "time": "2020/4/18"
+    },
+    {
+        "name": "Lea",
+        "message": "Hi world",
+        "time": "2020/4/18"
+    },
+    {
+        "name": "Damien",
+        "message": "Hello world",
+        "time": "2020/4/18"
+    },
+    {
+        "name": "Steven",
+        "message": "Taiwan No.1",
+        "time": "2020/4/17"
+    }
+]
 
 app.use(express.static('./public'))
 
 app
     .get('/', function (req, res) {
+        /*
         fs.readFile('./views/boardIndex.html', function (err, data) {
             if (err) return res.send('404 Not Found.')
-            /*
             var htmlStr = template.render(data.toString(), {
                 'comments' : comments
             })
-            */
+        */
             //.render方法預設至views/目錄找，所以直接打views/裡面檔名
-            res.render('boardIndex.html', {
-                comments: comments
-            })
+        res.render('boardIndex.html', {
+            comments: comments
         })
     })
     .get('/post', function (req, res) {

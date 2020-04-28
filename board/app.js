@@ -19,7 +19,6 @@ app.engine('html', require('express-art-template'))
 
 var comments = []
 fs.readFile('./db.json', function (err,data) {
-    if (err) return res.end('404 Not Found.')
     comments = JSON.parse(data)
 })
 

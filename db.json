@@ -1,0 +1,9 @@
+{
+    "students" : [
+        {"id" : 1, "name" : "Steven", "gender" : 0, "age" : 39, "habits" : "sleep, masturbating"},
+        {"id" : 2, "name" : "Sharon", "gender" : 1, "age" : 40, "habits" : "sleep"},
+        {"id" : 3, "name" : "Damien", "gender" : 0, "age" : 8, "habits" : "sleep, drawing"},
+        {"id" : 4, "name" : "Lea", "gender" : 1, "age" : 5, "habits" : "sleep, play"},
+        {"id" : 5, "name" : "Luka", "gender" : 0, "age" : 3, "habits" : "sleep, eat"}
+    ]
+}

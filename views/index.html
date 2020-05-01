@@ -163,11 +163,12 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>Student id</th>
+              <th>id</th>
               <th>name</th>
               <th>gender</th>
               <th>age</th>
               <th>hobbies</th>
+              <th>actions</th>
             </tr>
           </thead>
           <tbody>
@@ -178,6 +179,10 @@
               <td>{{ $value.gender }}</td>
               <td>{{ $value.age }}</td>
               <td>{{ $value.hobbies }}</td>
+              <th>
+                  <a href="/students/edit?id={{ $value.id }}">Edit</a>
+                  <a href="/students/edit?id={{ $value.id }}">Delete</a>
+              </th>
             </tr>
             {{ /each }}
           </tbody>

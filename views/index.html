@@ -156,7 +156,9 @@
         {{ /each }}
       </div>
       <h2>Section title</h2>
-      <button class="btn btn-success">add user</button>
+      <a href="students/new">
+        <button class="btn btn-success">add user</button>
+      </a>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -165,7 +167,7 @@
               <th>name</th>
               <th>gender</th>
               <th>age</th>
-              <th>habits</th>
+              <th>hobbies</th>
             </tr>
           </thead>
           <tbody>
@@ -175,7 +177,7 @@
               <td>{{ $value.name }}</td>
               <td>{{ $value.gender }}</td>
               <td>{{ $value.age }}</td>
-              <td>{{ $value.habits }}</td>
+              <td>{{ $value.hobbies }}</td>
             </tr>
             {{ /each }}
           </tbody>

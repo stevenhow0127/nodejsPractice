@@ -57,6 +57,20 @@ exports.update = function (student, callback) {
     })
 }
 
-exports.delete = function () {
-
+exports.deleteById = function (id, callback) {
+    fs.readFile(dbPath, 'utf8', function (err, data) {
+        if (err) return callback(err)
+        var students = JSON.parse(data).students
+        var resultId = students.findIndex(function (item) {
+            return item.id === parseInt(id)
+        })
+        students.splice(resultId, 1)
+        var fileData = JSON.stringify({
+            students: students
+        })
+        fs.writeFile(dbPath, fileData, function (err) {
+            if (err) return callback(err)
+            callback(null)
+        })
+    })
 }

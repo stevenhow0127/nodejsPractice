@@ -72,7 +72,13 @@ router
     })
 
     .get('/students/delete', function (req, res) {
-        
+        var id = parseInt(req.query.id)
+        alert('Confirm deleting No. ' + id + '?')
+        db.deleteById(id, function (err) {
+            if (err) return res.status(500).send('DB delete failed...')
+            console.log('DB delete success!')
+        })
+        res.redirect('/students')
     })
 
 module.exports = router

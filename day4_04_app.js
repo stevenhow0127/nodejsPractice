@@ -9,7 +9,7 @@ app
     .use('/public/', express.static('./public/'))
     .use(bodyParser.urlencoded({ extended: false }))
     .use(bodyParser.json())
-    
+
     .use(router)
 
 app.listen(80, function(){

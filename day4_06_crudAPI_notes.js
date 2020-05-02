@@ -91,6 +91,24 @@ exports.update = function (student, callback) {
 }
 
 //4. 刪除資料
-exports.delete = function () {
-
+exports.deleteById = function (id, callback) {
+    fs.readFile(dbPath, 'utf8', function (err, data) {
+        if (err) return callback(err)
+        //callback第一個參數為err, 第二個是結果data
+        var students = JSON.parse(data).students
+        //findIndex()專門用來根據條件尋找元素的index
+        var resultId = students.findIndex(function (item) {
+            return item.id === parseInt(id)
+        })
+        //.splice()將元素刪除 -> .slice(第幾項, 刪幾個)
+        students.splice(resultId, 1)
+        var fileData = JSON.stringify({
+            students: students
+        })
+        fs.writeFile(dbPath, fileData, function (err) {
+            if (err) return callback(err)
+            //成功回傳err === null
+            callback(null)
+        })
+    })
 }

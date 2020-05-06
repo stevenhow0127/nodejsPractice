@@ -16,6 +16,7 @@ exports.find = function (callback) {
         要取得非同步函數需用callback回調函數：
         function fn (callback) {
             //var callback = function (data) { console.log(data) }
+            //var callback = data => console.log(data)
             setTimeout(function () {
                 var data = 'hello'
                 callback(data)

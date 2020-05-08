@@ -11,7 +11,7 @@ router
 
     .get('/students', (req, res) => {
         db.find ((err, students) => {
-            if (err) return res.status(500).send('DB error...')
+            if (err) throw err
             res.render('index.html', {
                 fruits: [
                     'apple',
@@ -31,7 +31,7 @@ router
     .post('/students/new', (req, res) => {
         let student = req.body
         new db(student).save((err) => {
-            if (err) return res.status(500).send('DB writing failed...')
+            if (err) throw err
             console.log('DB insert success!')
         })
         res.redirect('/students') 
@@ -40,7 +40,7 @@ router
     .get('/students/edit', (req, res) => {
         let id = req.query.id
         db.findById(id, (err, student) => {
-            if (err) return res.status(500).send('DB error...')
+            if (err) throw err
             res.render('edit.html', {
                 student: student
             })
@@ -50,7 +50,7 @@ router
     .post('/students/edit', (req, res) => {
         let student = req.body
         db.findByIdAndUpdate(student.id, student, (err) => {
-            if (err) return res.status(500).send('DB update failed...')
+            if (err) throw err
             console.log('DB update success!')
         })
         res.redirect('/students')
@@ -61,7 +61,7 @@ router
         db.findByIdAndRemove({
             _id: id
         }, (err) => {
-            if (err) return res.status(500).send('delete failed!')
+            if (err) throw err
             console.log('DB delete success!')
         })
         res.redirect('/students')

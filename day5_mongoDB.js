@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-mongoose.connect('mongodb://localhost/myDB')
+mongoose.connect('mongodb://localhost/myDB', {useNewUrlParser: true, useUnifiedTopology: true})
 
 //設計collections結構
 const userSchema = new Schema({

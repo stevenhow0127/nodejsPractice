@@ -40,7 +40,8 @@ User.findOne({
     username: 'admin', //加查詢條件只需增加項目
     password: 'fuck54383845'
 }, (err, ret) => {
-    if (err) return console.log('Read error!')
+    //throw：1. 阻止程式繼續執行，2. 錯誤訊息印至console
+    if (err) throw err
     return console.log(ret)
 })
 
@@ -48,7 +49,7 @@ User.findOne({
 User.remove({
     username: 'steven'
 }, (err, ret) => {
-    if (err) return console.log('delete failed!')
+    if (err) throw err
     return console.log(ret)
 })
 
@@ -56,7 +57,7 @@ User.remove({
 User.findByIdAndUpdate('5eb2d2cb45e237309c0a88f2', {
     password: '1234'
 }, (err, ret) => {
-    if (err) return console.log('update failed!')
+    if (err) throw err
     return console.log(ret)
 })
 
@@ -66,6 +67,6 @@ User.findOneAndUpdate({
 }, {
     password: '5678'
 }, (err, ret) => {
-    if (err) return console.log('update failed!')
+    if (err) throw err
     return console.log(ret)
 })

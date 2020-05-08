@@ -22,17 +22,15 @@ const userSchema = new Schema({
 const User = mongoose.model('User', userSchema)
 
 //insert
-/*var admin = new User({
+var admin = new User({
     username: 'steven',
     password: '19810127',
     email: 'steven@gmail.com'
 })
 admin.save().then(() => console.log('Insert success!!'))
-*/
+
 //read all
-/*User.find({
-    username: 'steven'
-}, (err, ret) => {
+User.find((err, ret) => {
     if (err) return console.log('Read error!')
     console.log(ret)
 })
@@ -45,7 +43,29 @@ User.findOne({
     if (err) return console.log('Read error!')
     return console.log(ret)
 })
-*/
 
 //delete
+User.remove({
+    username: 'steven'
+}, (err, ret) => {
+    if (err) return console.log('delete failed!')
+    return console.log(ret)
+})
 
+//update by id
+User.findByIdAndUpdate('5eb2d2cb45e237309c0a88f2', {
+    password: '1234'
+}, (err, ret) => {
+    if (err) return console.log('update failed!')
+    return console.log(ret)
+})
+
+//update by other parameters
+User.findOneAndUpdate({
+    username: 'admin'
+}, {
+    password: '5678'
+}, (err, ret) => {
+    if (err) return console.log('update failed!')
+    return console.log(ret)
+})

@@ -174,9 +174,10 @@
           <tbody>
             {{ each students }}
             <tr>
-              <td>{{ $value.id }}</td>
+              <td>{{ $index + 1 }}</td>
               <td>{{ $value.name }}</td>
-              <td>{{ $value.gender }}</td>
+              {{ if $value.gender === 0 }}<td>男</td>
+              {{ else }}<td>女</td>{{ /if }}
               <td>{{ $value.age }}</td>
               <td>{{ $value.hobbies }}</td>
               <th>

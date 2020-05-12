@@ -1,0 +1,26 @@
+{{ extend './_layouts/layout.html' }}
+
+
+{{ block 'title' }}
+Practice of blog site
+{{ /block }}
+
+{{ block 'head' }}
+    <style>
+        body {
+            background-color: skyblue;
+        }
+    </style>
+{{ /block }}
+
+{{ block 'content'}}
+    <div>
+        <h2 class="main">Replaced content!</h2>
+    </div>
+{{ /block }}
+
+{{ block 'script'}}
+    <script>
+        window.alert('index insert its own script!')
+    </script>
+{{ /block }}

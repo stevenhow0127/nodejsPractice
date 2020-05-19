@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "blueimp-md5": "^2.15.0"
+    "blueimp-md5": "^2.15.0",
+    "express-session": "^1.17.1"
   }
 }

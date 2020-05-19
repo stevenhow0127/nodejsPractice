@@ -49,7 +49,8 @@
                         const errCode = data.errCode
                         const msg = data.msg
                         if (errCode === 0) {
-                            window.alert(msg)
+                            //非同步請求無法由server端跳轉頁面，須由client端跳轉
+                            window.location.href = '/'
                         } else if (errCode === 1) {
                             window.alert(msg)
                         } else {

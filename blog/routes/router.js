@@ -7,11 +7,14 @@ const User = require('../models/user')
 
 router
     .get('/', (req, res) => {
-        res.render('index.html')
+        console.log(req.session.user)
+        res.render('index.html', {
+            user: req.session.user
+        })
     })
 
     .get('/login', (req, res) => {
-        res.render('login.html')
+
     })
 
     .post('/login', (req, res) => {
@@ -44,13 +47,16 @@ router
                 errCode: 1,
                 msg: 'email or nickname existed...'
             })
-            //用md5加密password，兩層是保險
-            user.password = md5(md5(user.password))
+            //用md5加密password，兩層是保險，加入隨意字串再加密，就算有人拿到password也解不開
+            user.password = md5(md5(user.password) + 'whatever')
             new User(user).save( err => {
                 if (err) return res.status(500).json({
                     errCode: 500,
                     msg: 'Server Error'
                 })
+                //註冊成功，使用express-session紀錄user登錄狀態，.user可以隨便取
+                req.session.user = user
+
                 res.status(200).json({
                     errCode: 0,
                     msg: 'ok'

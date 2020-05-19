@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-var dbPath = './db.json'
+const dbPath = './db.json'
 
 exports.find = function (callback) {
     fs.readFile(dbPath, 'utf8', function (err, data) {

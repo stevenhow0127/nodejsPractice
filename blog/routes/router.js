@@ -14,11 +14,31 @@ router
     })
 
     .get('/login', (req, res) => {
-
+        res.render('login.html')
     })
 
     .post('/login', (req, res) => {
-        
+        const body = req.body
+        User.findOne({
+            email: body.email,
+            password: md5(md5(body.password) + 'whatever')
+        }, (err, user) => {
+            if (err) return res.status(500).json({
+                errCode: 500,
+                msg: err.message
+            })
+            if (!user) {
+                return res.status(200).json({
+                    errCode: 1,
+                    msg: 'email or password invalid!'
+                })
+            }
+            req.session.user = user
+            res.status(200).json({
+                errCode: 0,
+                msg: 'OK'
+            })
+        })
     })
 
     .get('/register', (req, res) => {
@@ -66,7 +86,9 @@ router
     })
 
     .get('/logout', (req, res) => {
-        
+        //清除session
+        req.session.user = null
+        res.redirect('/login')
     })
 
 module.exports = router

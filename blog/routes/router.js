@@ -87,7 +87,8 @@ router
 
     .get('/logout', (req, res) => {
         //清除session
-        req.session.user = null
+        // req.session.user = null
+        delete req.session.user
         res.redirect('/login')
     })
 
